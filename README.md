@@ -1,2 +1,2 @@
 # calc v0.1.0
-Raw ideas of a calculator
+Some raw ideas of a calculator
