@@ -1,0 +1,13 @@
+{
+  "name": "calc",
+  "version": "0.1.0",
+  "description": "A calculator",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "node tools/build",
+    "watch": "node tools/watch",
+    "serve": "node tools/serve"
+  },
+  "author": "Malcom Wu <malcomwu@gmail.com>",
+  "license": "Unlicense"
+}
