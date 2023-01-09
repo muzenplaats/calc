@@ -54,6 +54,42 @@ export const fib = memoize(function (num) {
   return fib(num - 1) + fib(num - 2)  // recursive case
 })
 
+// Normal distribution in positive integers (Gaussian)
+/*
+  n                g(n)           parity  distribution (adjective)
+  1                 1              odd    |  (single)                       singular
+                   / \                                                 ||
+  2               1   1            even   ||  (double)                 ||    plural
+                 / \ / \                     |                   |     ||
+  3             1   2   1          odd      |||  (triple)  ||    |     ||      "
+               / \ / \ / \                                 ||   |||    ||
+  4           1   3   3   1        e           (quaduple) ||||  |||   ||||
+             / \ / \ / \ / \                                    |||   ||||
+  5         1   4   6   4   1      o              (quintuple)  |||||  ||||
+           / \ / \ / \ / \ / \                                        ||||
+  6       1   5  10  10   5   1    e                     (sextuple)  ||||||
+       k: 0   1   2   3   4   5
+              ^   ^   ^   ^
+         / ...
+  7     ...
+*/
+export const gaussianInt = memoize(function (num) {
+  // Base case
+  if (num === 1) return [1]
+
+  // Recursive case
+  const gn = [1]
+  const gn_1 = gaussianInt(num - 1)
+  for (let k = 1; k < num - 1; k++) gn[k] = gn_1[k - 1] + gn_1[k]
+  gn.push(1)
+  return gn
+})
+
+// for (let n = 1; n < 10; n++) {
+//   console.log('g(' + n + ') =', gaussianInt(n))
+// }
+
+
 // begin : step : end
 // begin : end
 export const range = (begin, step, end) => {
